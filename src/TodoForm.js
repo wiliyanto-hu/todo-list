@@ -1,5 +1,9 @@
+import React from "react";
 import InputState from "./hooks/InputState";
-const TodoForm = ({ addTodo }) => {
+import { dispatchContext } from "./context/TodosContext";
+const TodoForm = () => {
+  const { dispatch } = React.useContext(dispatchContext);
+
   const [value, setValue, clearValue] = InputState("");
   return (
     <div>
@@ -13,7 +17,7 @@ const TodoForm = ({ addTodo }) => {
         <button
           onClick={(e) => {
             e.preventDefault();
-            addTodo(value);
+            dispatch({ type: "add", task: value });
             clearValue();
           }}
         >

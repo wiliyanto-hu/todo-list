@@ -1,5 +1,8 @@
+import React from "react";
 import InputState from "./hooks/InputState";
-const EditTodo = ({ toggleEdit, task, editTodo, id }) => {
+import { dispatchContext } from "./context/TodosContext";
+const EditTodo = ({ toggleEdit, task, id }) => {
+  const { dispatch } = React.useContext(dispatchContext);
   const [value, setValue] = InputState(task);
   return (
     <form>
@@ -7,7 +10,7 @@ const EditTodo = ({ toggleEdit, task, editTodo, id }) => {
       <button
         onClick={(e) => {
           e.preventDefault();
-          editTodo(id, value);
+          dispatch({ type: "edit", task: value, id });
           toggleEdit();
         }}
       >

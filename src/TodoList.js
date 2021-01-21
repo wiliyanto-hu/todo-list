@@ -1,15 +1,17 @@
 import Todo from "./Todo";
 import React from "react";
-
-const TodoList = ({ removeTodo, todos, doneTodo, editTodo }) => {
+import { dispatchContext } from "./context/TodosContext";
+const TodoList = () => {
+  const { todos } = React.useContext(dispatchContext);
   const todosList = todos.map((todo) => (
     <Todo
       task={todo.task}
+      key={todo.id}
       id={todo.id}
-      removeTodo={removeTodo}
+      // removeTodo={removeTodo}
       isComplete={todo.isComplete}
-      doneTodo={doneTodo}
-      editTodo={editTodo}
+      // doneTodo={doneTodo}
+      // editTodo={editTodo}
     />
   ));
   return <div>{todosList}</div>;

@@ -2,6 +2,7 @@ import React from "react";
 import { withStyles } from "@material-ui/styles";
 import toggle from "./hooks/toggle";
 import EditForm from "./EditTodo";
+import { dispatchContext } from "./context/TodosContext";
 const styles = {
   Todo: {
     fontSize: "1.2rem",
@@ -13,32 +14,32 @@ const styles = {
 const Todo = ({
   task,
   classes,
-  removeTodo,
+  // removeTodo,
   id,
   isComplete,
-  doneTodo,
-  editTodo,
+  // doneTodo,
+  // editTodo,
 }) => {
+  const { dispatch } = React.useContext(dispatchContext);
   const [isEditing, toggleEdit] = toggle(false);
   if (isEditing) {
     return (
       <EditForm
         toggleEdit={toggleEdit}
         task={task}
-        editTodo={editTodo}
+        // editTodo={editTodo}
         id={id}
       />
     );
   }
   return (
     <div className={classes.Todo}>
-      <input type="checkbox" onChange={() => doneTodo(id)} />
+      <input type="checkbox" onChange={() => dispatch({ type: "done", id })} />
       <span className={classes.task}>{task}</span>
       <span onClick={toggleEdit}>edit</span>
       <span
         onClick={() => {
-          removeTodo(id);
-          console.log(id);
+          dispatch({ type: "delete", id });
         }}
       >
         Delete
