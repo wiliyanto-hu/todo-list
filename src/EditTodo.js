@@ -6,7 +6,7 @@ const EditTodo = ({ toggleEdit, task, id }) => {
   const [value, setValue] = InputState(task);
   return (
     <form>
-      <input value={value} onChange={setValue} />
+      <input value={value} onChange={setValue} type="text" />
       <button
         onClick={(e) => {
           e.preventDefault();

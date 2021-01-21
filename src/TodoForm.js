@@ -1,17 +1,32 @@
 import React from "react";
 import InputState from "./hooks/InputState";
 import { dispatchContext } from "./context/TodosContext";
-const TodoForm = () => {
+import { withStyles } from "@material-ui/styles";
+const styles = {
+  Form: {
+    height: "2.5rem",
+    backgroundColor: "red",
+  },
+  FormInput: {
+    height: "100%",
+    border: "none",
+    outline: "none",
+    padding: "1rem",
+    fontSize: "1.2rem",
+  },
+};
+const TodoForm = ({ classes }) => {
   const { dispatch } = React.useContext(dispatchContext);
 
   const [value, setValue, clearValue] = InputState("");
   return (
-    <div>
+    <div className={classes.Form}>
       <form>
         <input
           type="text"
           onChange={setValue}
           value={value}
+          className={classes.FormInput}
           placeholder="Insert Todo"
         />
         <button
@@ -27,4 +42,4 @@ const TodoForm = () => {
     </div>
   );
 };
-export default TodoForm;
+export default withStyles(styles)(TodoForm);
