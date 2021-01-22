@@ -4,7 +4,7 @@ import TodoForm from "./TodoForm";
 import { withStyles } from "@material-ui/styles";
 import { today, fullDate } from "./date";
 import { DispatchContextProvider } from "./context/TodosContext";
-
+import Divider from "./Divider";
 const styles = {
   container: {
     width: "40%",
@@ -30,6 +30,7 @@ const TodoListContainer = ({ classes }) => {
       </div>
       <DispatchContextProvider>
         <TodoForm />
+        <Divider />
         <TodoList />
       </DispatchContextProvider>
     </div>
