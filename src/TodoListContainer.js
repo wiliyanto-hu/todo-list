@@ -3,36 +3,27 @@ import TodoList from "./TodoList";
 import TodoForm from "./TodoForm";
 import { withStyles } from "@material-ui/styles";
 import { today, fullDate } from "./date";
-import { DispatchContextProvider } from "./context/TodosContext";
-import Divider from "./Divider";
-const styles = {
-  container: {
-    width: "40%",
-    backgroundColor: "white",
-    borderRadius: "7px",
-    margin: "2rem auto",
-  },
-  header: {
-    backgroundColor: "rgb(245,245,255)",
-    borderTopLeftRadius: "7px",
-    borderTopRightRadius: "7px",
-    fontFamily: "Work Sans, sans-serif",
-    textAlign: "left",
-    padding: "0.5rem 1rem ",
-  },
-};
+import { dispatchContext } from "./context/TodosContext";
+import styles from "./styles/TodoListContainerStyles";
 const TodoListContainer = ({ classes }) => {
+  const { todos } = React.useContext(dispatchContext);
   return (
     <div className={classes.container}>
       <div className={classes.header}>
-        <h2 style={{ fontWeight: 400, color: "rgb(98,104,216)" }}>{today}</h2>
-        <h2 style={{ color: "rgba(0,0,0,0.65)" }}>{fullDate}</h2>
+        <div className={classes.leftSide}>
+          <h2 style={{ fontWeight: 400, color: "rgb(98,104,216)" }}>{today}</h2>
+          <h2 style={{ color: "rgba(0,0,0,0.65)" }}>{fullDate}</h2>
+        </div>
+        <div className={classes.rightSide}>
+          <h2>
+            {1 > todos.length
+              ? "You have no task"
+              : `${todos.length} task left`}
+          </h2>
+        </div>
       </div>
-      <DispatchContextProvider>
-        <TodoForm />
-        <Divider />
-        <TodoList />
-      </DispatchContextProvider>
+      <TodoForm />
+      <TodoList />
     </div>
   );
 };
