@@ -9,7 +9,7 @@ const Alert = ({ classes }) => {
 
   const handleClick = (e) => {
     if (!alertBox.current.contains(e.target)) {
-      alert("inside");
+      toggleAlert();
     }
   };
 
