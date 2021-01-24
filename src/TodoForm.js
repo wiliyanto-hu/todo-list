@@ -3,10 +3,10 @@ import InputState from "./hooks/InputState";
 import { dispatchContext } from "./context/TodosContext";
 import { withStyles } from "@material-ui/styles";
 import styles from "./styles/TodoFormStyles.js";
-
+import { alertContext } from "./context/AlertContext";
 const TodoForm = ({ classes }) => {
   const { dispatch } = React.useContext(dispatchContext);
-
+  const { toggleAlert } = React.useContext(alertContext);
   const [value, setValue, clearValue] = InputState("");
   return (
     <div>
@@ -24,7 +24,7 @@ const TodoForm = ({ classes }) => {
             onClick={(e) => {
               e.preventDefault();
               if (value.trim() === "") {
-                alert("task cannot be empty");
+                toggleAlert();
               } else {
                 dispatch({ type: "add", task: value });
                 clearValue();

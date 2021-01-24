@@ -1,4 +1,4 @@
-export default {
+const styles = {
   "@global": {
     ".todo-enter": {
       opacity: 0,
@@ -16,3 +16,4 @@ export default {
     },
   },
 };
+export default styles;

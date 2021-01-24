@@ -1,4 +1,4 @@
-export default {
+const styles = {
   EditTodo: {
     display: "flex",
     justifyContent: "space-between",
@@ -37,3 +37,4 @@ export default {
     },
   },
 };
+export default styles;

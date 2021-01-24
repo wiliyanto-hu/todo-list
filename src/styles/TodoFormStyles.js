@@ -1,4 +1,4 @@
-export default {
+const styles = {
   Form: {
     height: "3rem",
     width: "100%",
@@ -35,3 +35,4 @@ export default {
     },
   },
 };
+export default styles;

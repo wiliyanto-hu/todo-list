@@ -1,4 +1,4 @@
-export default {
+const styles = {
   Todo: {
     fontSize: "1.2rem",
     display: "flex",
@@ -46,3 +46,4 @@ export default {
     textDecoration: (props) => (props.isComplete ? "line-through" : "none"),
   },
 };
+export default styles;

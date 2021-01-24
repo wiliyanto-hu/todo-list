@@ -1,9 +1,9 @@
-export default {
+const styles = {
   container: {
     width: "40%",
     backgroundColor: "white",
     borderRadius: "7px",
-    margin: "2rem auto",
+    margin: "0 auto",
   },
   header: {
     backgroundColor: "rgb(245,245,255)",
@@ -22,3 +22,4 @@ export default {
     },
   },
 };
+export default styles;
