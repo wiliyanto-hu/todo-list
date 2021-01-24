@@ -7,8 +7,17 @@ import styles from "./styles/TodoStyles";
 const Todo = ({ task, classes, id, isComplete }) => {
   const { dispatch } = React.useContext(dispatchContext);
   const [isEditing, toggleEdit] = toggle(false);
+  const inputRef = React.useRef();
+
   if (isEditing) {
-    return <EditForm toggleEdit={toggleEdit} task={task} id={id} />;
+    return (
+      <EditForm
+        toggleEdit={toggleEdit}
+        task={task}
+        id={id}
+        inputRef={inputRef}
+      />
+    );
   }
   return (
     <div className={classes.Todo}>

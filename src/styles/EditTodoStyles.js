@@ -4,6 +4,7 @@ export default {
     justifyContent: "space-between",
     alignItems: "center",
     height: "3rem",
+    backgroundColor: "rgb(245,245,255)",
 
     "& input": {
       fontSize: "1.2rem",
@@ -12,6 +13,7 @@ export default {
       width: "85%",
       outline: "none",
       paddingLeft: "1rem",
+      backgroundColor: "inherit",
     },
     "& div": {
       width: "15%",

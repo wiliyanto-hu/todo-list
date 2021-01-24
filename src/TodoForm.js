@@ -23,8 +23,12 @@ const TodoForm = ({ classes }) => {
           <button
             onClick={(e) => {
               e.preventDefault();
-              dispatch({ type: "add", task: value });
-              clearValue();
+              if (value.trim() === "") {
+                alert("task cannot be empty");
+              } else {
+                dispatch({ type: "add", task: value });
+                clearValue();
+              }
             }}
             className={classes.FormAddBtn}
           >
