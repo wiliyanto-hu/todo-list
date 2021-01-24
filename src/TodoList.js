@@ -8,19 +8,21 @@ import styles from "./styles/global";
 
 const TodoList = () => {
   const { todos } = React.useContext(dispatchContext);
-  const todosList = todos.map((todo, index) => (
-    <CSSTransition key={todo.id} timeout={300} classNames="todo">
-      <>
-        <Todo
-          task={todo.task}
-          key={todo.id}
-          id={todo.id}
-          isComplete={todo.isComplete}
-        />
-        {index < todos.length - 1 && <Divider />}
-      </>
-    </CSSTransition>
-  ));
+  const todosList = React.useMemo(() => {
+    return todos.map((todo, index) => (
+      <CSSTransition key={todo.id} timeout={300} classNames="todo">
+        <>
+          <Todo
+            task={todo.task}
+            key={todo.id}
+            id={todo.id}
+            isComplete={todo.isComplete}
+          />
+          {index < todos.length - 1 && <Divider />}
+        </>
+      </CSSTransition>
+    ));
+  }, [todos]);
   return (
     <div>
       <TransitionGroup>{todosList}</TransitionGroup>

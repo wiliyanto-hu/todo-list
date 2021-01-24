@@ -1,20 +1,30 @@
+import sizes from "../utils/sizes";
+
 const styles = {
   Todo: {
     fontSize: "1.2rem",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    height: "3rem",
+    minHeight: "3rem",
   },
   TodoTask: {
     width: "85%",
     marginLeft: "1rem",
     display: "flex",
     alignItems: "center",
+    [sizes("sm")]: {
+      width: "75%",
+    },
     "& p": {
       marginLeft: "1.5rem",
       color: "rgba(0,0,0,0.7)",
       fontFamily: "Rubik, sans-serif",
+      [sizes("sm")]: {
+        marginLeft: "1rem",
+
+        fontSize: "1rem",
+      },
     },
     "& input": {
       "&:checked": {
@@ -26,6 +36,9 @@ const styles = {
     width: "15%",
     display: "flex",
     justifyContent: "space-around",
+    [sizes("sm")]: {
+      width: "25%",
+    },
     "& i": {
       cursor: "pointer",
 

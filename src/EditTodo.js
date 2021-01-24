@@ -7,7 +7,6 @@ import styles from "./styles/EditTodoStyles";
 
 const EditTodo = ({ toggleEdit, task, id, classes, inputRef }) => {
   const { toggleAlert } = React.useContext(alertContext);
-
   const { dispatch } = React.useContext(dispatchContext);
   const [value, setValue] = InputState(task);
   React.useEffect(() => inputRef.current && inputRef.current.focus());

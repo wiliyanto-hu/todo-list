@@ -2,7 +2,7 @@ import React from "react";
 import TodoList from "./TodoList";
 import TodoForm from "./TodoForm";
 import { withStyles } from "@material-ui/styles";
-import { today, fullDate } from "./date";
+import { today, fullDate } from "./utils/date";
 import { dispatchContext } from "./context/TodosContext";
 import { alertContext } from "./context/AlertContext";
 import styles from "./styles/TodoListContainerStyles";
