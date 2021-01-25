@@ -17,7 +17,7 @@ const TodoForm = ({ classes }) => {
           value={value}
           className={classes.FormInput}
           placeholder="Insert Todo"
-          maxlength="35"
+          maxLength="35"
         />
         <div>
           <button

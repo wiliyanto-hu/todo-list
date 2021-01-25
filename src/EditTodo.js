@@ -16,7 +16,7 @@ const EditTodo = ({ toggleEdit, task, id, classes, inputRef }) => {
         value={value}
         onChange={setValue}
         type="text"
-        maxlength="35"
+        maxLength="35"
         ref={inputRef}
       />
       <div>

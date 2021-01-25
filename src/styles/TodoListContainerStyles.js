@@ -8,11 +8,9 @@ const styles = {
     margin: "0 auto",
 
     [sizes("md")]: {
-      width: "50%",
-    },
-    [sizes("sm")]: {
       width: "65%",
     },
+
     [sizes("xs")]: {
       width: "85%",
     },

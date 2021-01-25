@@ -1,9 +1,11 @@
 import React from "react";
-import { withStyles } from "@material-ui/styles";
-import toggle from "./hooks/toggle";
 import EditForm from "./EditTodo";
+import Checkbox from "./Checkbox";
+import toggle from "./hooks/toggle";
 import { dispatchContext } from "./context/TodosContext";
+import { withStyles } from "@material-ui/styles";
 import styles from "./styles/TodoStyles";
+
 const Todo = ({ task, classes, id, isComplete }) => {
   const { dispatch } = React.useContext(dispatchContext);
   const [isEditing, toggleEdit] = toggle(false);
@@ -22,10 +24,7 @@ const Todo = ({ task, classes, id, isComplete }) => {
   return (
     <div className={classes.Todo}>
       <div className={classes.TodoTask}>
-        <input
-          type="checkbox"
-          onChange={() => dispatch({ type: "done", id })}
-        />
+        <Checkbox id={id} isComplete={isComplete} />
         <p className={classes.task}>{task}</p>
       </div>
       <div className={classes.TodoBtns}>
